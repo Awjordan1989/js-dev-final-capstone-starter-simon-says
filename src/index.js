@@ -144,7 +144,18 @@ function padHandler(event) {
  *
  */
 function setLevel(level = 1) {
-  // TODO: Write your code here.
+  const levels = {
+    1: 8,
+    2: 14,
+    3: 20,
+    4: 31
+  };
+
+  if (level >= 1 && level <= 4) {
+    return levels[level];
+  } else {
+    return "Please enter level 1, 2, 3, or 4";
+  }
 }
 
 /**
@@ -162,17 +173,17 @@ function setLevel(level = 1) {
  * getRandomItem([1, 2, 3, 4]) //> returns 2
  * getRandomItem([1, 2, 3, 4]) //> returns 1
  */
-function getRandomItem(collection) {
-  // if (collection.length === 0) return null;
-  // const randomIndex = Math.floor(Math.random() * collection.length);
-  // return collection[randomIndex];
+ffunction getRandomItem(collection) {
+  if (collection.length === 0) return null;
+  const randomIndex = Math.floor(Math.random() * collection.length);
+  return collection[randomIndex];
 }
 
 /**
- * Sets the status text of a given HTML element with a given a message
+ * Sets the status text of a given HTML element with a given message
  */
 function setText(element, text) {
-  // TODO: Write your code here.
+  element.textContent = text;
   return element;
 }
 
