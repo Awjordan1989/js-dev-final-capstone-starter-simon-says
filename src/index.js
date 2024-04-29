@@ -60,7 +60,7 @@ let roundCount = 0; // track the number of rounds that have been played so far
  */
 
 padContainer.addEventListener("click", padHandler);
-// TODO: Add an event listener `startButtonHandler()` to startButton.
+startButton.addEventListener("click", startButtonHandler); // Adding event listener to startButton
 
 /**
  * EVENT HANDLERS
@@ -81,10 +81,13 @@ padContainer.addEventListener("click", padHandler);
  *
  */
 function startButtonHandler() {
-  // TODO: Write your code here.
-
-  return { startButton, statusSpan };
+  setLevel(); // Call setLevel() to set the level of the game
+  roundCount++; // Increment the roundCount
+  startButton.classList.add("hidden"); // Hide the start button
+  statusSpan.classList.remove("hidden"); // Unhide the status element
+  playComputerTurn(); // Start the game with the computer going first
 }
+
 
 /**
  * Called when one of the pads is clicked.
@@ -107,9 +110,13 @@ function padHandler(event) {
   const { color } = event.target.dataset;
   if (!color) return;
 
-  // TODO: Write your code here.
-  return color;
+  const pad = pads.find(pad => pad.color === color); // Retrieve the pad from the pads array
+  pad.sound.play(); // Play the sound for the pad
+  checkPress(color); // Verify the player's selection
+
+  return color; 
 }
+
 
 /**
  * HELPER FUNCTIONS
