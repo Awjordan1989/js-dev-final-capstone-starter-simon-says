@@ -201,25 +201,35 @@ function setText(element, text) {
  */
 
 function activatePad(color) {
-  // TODO: Write your code here.
+  const pad = pads.find(pad => pad.color === color); // Retrieve the pad from the pads array
+  pad.selector.classList.add("activated"); // Add the "activated" class to the selected pad
+  pad.sound.play(); // Play the sound associated with the pad
+  setTimeout(() => {
+    pad.selector.classList.remove("activated"); // Remove the "activated" class after 500ms
+  }, 500);
 }
 
-/**
- * Activates a sequence of colors passed as an array to the function
- *
- * 1. Iterate over the `sequence` array using `.forEach()`
- *
- * 2. For each element in `sequence`, use `setTimeout()` to call `activatePad()`, adding
- * a delay (in milliseconds) between each pad press. Without it, the pads in the sequence
- * will be activated all at once
- *
- * 3. The delay between each pad press, passed as a second argument to `setTimeout()`, needs
- * to change on each iteration. The first button in the sequence is activated after 600ms,
- * the next one after 1200ms (600ms after the first), the third one after 1800ms, and so on.
- */
+
+//**
+* Activates a sequence of colors passed as an array to the function
+*
+* 1. Iterate over the `sequence` array using `.forEach()`
+*
+* 2. For each element in `sequence`, use `setTimeout()` to call `activatePad()`, adding
+* a delay (in milliseconds) between each pad press. Without it, the pads in the sequence
+* will be activated all at once
+*
+* 3. The delay between each pad press, passed as a second argument to `setTimeout()`, needs
+* to change on each iteration. The first button in the sequence is activated after 600ms,
+* the next one after 1200ms (600ms after the first), the third one after 1800ms, and so on.
+*/
 
 function activatePads(sequence) {
-  // TODO: Write your code here.
+ sequence.forEach((color, index) => {
+   setTimeout(() => {
+     activatePad(color);
+   }, (index + 1) * 600);
+ });
 }
 
 /**
