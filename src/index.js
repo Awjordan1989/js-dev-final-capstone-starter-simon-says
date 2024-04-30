@@ -4,7 +4,7 @@
 
  const startButton = document.querySelector(".js-start-button");
  // TODO: Add the missing query selectors:
- const statusSpan = document.querySelector(".js-status-span"); // Use querySelector() to get the status element
+ const statusSpan = document.querySelector(".js-status"); // Use querySelector() to get the status element
  const heading = document.querySelector(".js-heading"); // Use querySelector() to get the heading element
  const padContainer = document.querySelector(".js-pad-container"); // Use querySelector() to get the pad container element
 
@@ -35,23 +35,23 @@ let roundCount = 0; // track the number of rounds that have been played so far
   {
     color: "red",
     selector: document.querySelector(".js-pad-red"),
-    sound: new Audio("../assets/simon-says-sound-1.mp3"),
+    sound: new Audio("./assets/simon-says-sound-1.mp3"),
   },
    // TODO: Add the objects for the green, blue, and yellow pads. Use object for the red pad above as an example.
   {
     color: "green",
     selector: document.querySelector(".js-pad-green"),
-    sound: new Audio("../assets/simon-says-sound-2.mp3"),
+    sound: new Audio("./assets/simon-says-sound-2.mp3"),
   },
   {
     color: "blue",
     selector: document.querySelector(".js-pad-blue"),
-    sound: new Audio("../assets/simon-says-sound-3.mp3"),
+    sound: new Audio("./assets/simon-says-sound-3.mp3"),
   },
   {
     color: "yellow",
     selector: document.querySelector(".js-pad-yellow"),
-    sound: new Audio("../assets/simon-says-sound-4.mp3"),
+    sound: new Audio("./assets/simon-says-sound-4.mp3"),
   }
  
 ];
@@ -82,12 +82,13 @@ startButton.addEventListener("click", startButtonHandler); // Adding event liste
  *
  */
 function startButtonHandler() {
-  setLevel(); // Call setLevel() to set the level of the game
+  maxRoundCount = setLevel(); // Set maxRoundCount to the level returned by setLevel()
   roundCount++; // Increment the roundCount
   startButton.classList.add("hidden"); // Hide the start button
   statusSpan.classList.remove("hidden"); // Unhide the status element
   playComputerTurn(); // Start the game with the computer going first
 }
+
 
 
 /**
