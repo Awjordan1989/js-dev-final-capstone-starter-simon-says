@@ -1,7 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Rubik+Microbe&display=swap');
 
 html {
-  background: url('../assets/background.png') no-repeat center center fixed;
+  background: url('../assets/Galaxy.jpg') no-repeat center center fixed;
   box-sizing: border-box;
   -webkit-background-size: cover;
   -moz-background-size: cover;
@@ -11,16 +11,18 @@ html {
 }
 
 body {
-  color: yellow;
+  color: rgb(42, 238, 12);
   font-family: 'Rubik Microbe', sans-serif;
+border:2px solid color(black );
   display: flex;
   justify-content: center;
   height: 100vh;
   align-items: center;
+  margin: 0; /* Remove default margin */
 }
 
 main {
-  background-color: #000;
+  background-color: black;
   padding: 40px;
 }
 
@@ -34,28 +36,35 @@ h1 {
 }
 
 .start-button {
-  display: inline-block;
   height: 38px;
   padding: 0 30px;
-  color: yellow;
+  color: rgb(255, 105, 180);
   text-align: center;
   font-size: 14px;
-  font-weight: 600;
+  font-weight: bold; 
   text-transform: uppercase;
   background-color: transparent;
-  border: 1px solid yellow;
+  border: 2px solid rgb(0, 0, 0);
   cursor: pointer;
 }
 
 .start-button:hover {
-  color: greenyellow;
+  color: #ff69b4; 
   font-size: 18px;
-  border-color: greenyellow;
+  border-color: #050505; 
   transform: rotate(5deg);
 }
 
 .status {
   font-size: 22px;
+}
+
+/* Add media query for smaller screen sizes */
+@media screen and (max-width: 600px) {
+  .start-button {
+    width: 100%; /* Make the button full width */
+    max-width: 200px; /* Set maximum width to avoid stretching too much */
+  }
 }
 
 .pad-container {

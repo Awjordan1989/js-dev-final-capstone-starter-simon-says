@@ -368,7 +368,7 @@ function resetGame(text) {
 
   // Uncomment the code below:
    alert(text);
-   setText(heading, "Simon Says");
+   setText(heading, "Malcolm Says");
    startButton.classList.remove("hidden");
    statusSpan.classList.add("hidden");
    padContainer.classList.add("unclickable");
